@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import io.gofiggy.figgy.dotfig.DotFigFile;
-import io.gofiggy.figgy.dotfig.types.DotFigContent;
+import io.gofiggy.figgy.dotfig.FiggyEditor;
+import io.gofiggy.figgy.dotfig.types.content.FiggyContent;
 import io.gofiggy.figgy.internal.utils.ContentConverter;
 import io.gofiggy.figgy.manager.JsonEditor;
 import io.gofiggy.figgy.parsers.JsonParser;
@@ -15,7 +15,7 @@ public class JSONSyntax {
 	String insertHelper = "";
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public String fromDotFig(DotFigFile file, Boolean prettyPrint) {
+	public String fromDotFig(FiggyEditor file, Boolean prettyPrint) {
 		String newlineSymbol2 = "\n"; 
 		if(prettyPrint == false) {
 			newlineSymbol2 = "";
@@ -24,9 +24,9 @@ public class JSONSyntax {
 		}
 		String builder = "";
 		builder = builder + "{" + newlineSymbol2;
-		for(DotFigContent cont : file.getContents()) {
+		for(FiggyContent cont : file.getContents()) {
 			builder = builder + "\"" + cont.getKey() + "\": ";
-			if(cont.getValue().getValueType() != HashMap.class || cont.getValue().getValueType() != ArrayList.class || cont.getValue().getValueType() != List.class || cont.getValue().getValueType() != DotFigContent.class) {
+			if(cont.getValue().getValueType() != HashMap.class || cont.getValue().getValueType() != ArrayList.class || cont.getValue().getValueType() != List.class || cont.getValue().getValueType() != FiggyContent.class) {
 				String subbuilder = "";
 				if(cont.getValue().toString() != null) {
 					subbuilder = "\"" + cont.getValue().toString() + "\"";
@@ -84,16 +84,16 @@ public class JSONSyntax {
 		return null;
 	}
 	
-	public DotFigFile toDotFig(String text) {
+	public FiggyEditor toDotFig(String text) {
 		text = text.replaceAll("\n", "%NEW_LINE%").substring(1, text.length() - 1);
 		return null;
 	}
 	
-	public DotFigFile toDotFig(JsonParser parser) {
+	public FiggyEditor toDotFig(JsonParser parser) {
 		return null;
 	}
 	
-	public DotFigFile toDotFig(JsonEditor editor) {
+	public FiggyEditor toDotFig(JsonEditor editor) {
 		return null;
 	}
 }

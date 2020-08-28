@@ -1,13 +1,13 @@
 package io.gofiggy.figgy.dotfig;
 
 import io.gofiggy.figgy.converter.TypeConverter;
-import io.gofiggy.figgy.dotfig.types.DotFigStage;
+import io.gofiggy.figgy.dotfig.types.FiggyStage;
 
-public class DotFigFile extends DotFigStage {
+public class FiggyEditor extends FiggyStage {
 	String path = "";
 	TypeConverter tconv = null; 
 	
-	public DotFigFile() {
+	public FiggyEditor() {
 		tconv = new TypeConverter();
 		tconv.importFrom(this);
 	}

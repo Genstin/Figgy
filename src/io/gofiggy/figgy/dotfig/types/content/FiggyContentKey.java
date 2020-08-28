@@ -1,14 +1,14 @@
-package io.gofiggy.figgy.dotfig.types.sub;
+package io.gofiggy.figgy.dotfig.types.content;
 
 import io.gofiggy.figgy.internal.utils.ContentConverter;
 
-public class ContentKey {
+public class FiggyContentKey {
 	String key = "";
 	
-	public ContentKey() {
+	public FiggyContentKey() {
 	}
 	
-	public ContentKey(String key) {
+	public FiggyContentKey(String key) {
 		this.key = key;
 	}
 	

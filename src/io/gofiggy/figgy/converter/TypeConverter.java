@@ -1,18 +1,18 @@
 package io.gofiggy.figgy.converter;
 
 import io.gofiggy.figgy.converter.refrences.YMLSyntax;
-import io.gofiggy.figgy.dotfig.DotFigFile;
+import io.gofiggy.figgy.dotfig.FiggyEditor;
 
 public class TypeConverter {
-	DotFigFile imported = new DotFigFile();
+	FiggyEditor imported = new FiggyEditor();
 	
 	public TypeConverter() {
 		
 	}
 	
 	public void importFrom(Object file) {
-		if(file.getClass().equals(DotFigFile.class)) {
-			imported = (DotFigFile) file;
+		if(file.getClass().equals(FiggyEditor.class)) {
+			imported = (FiggyEditor) file;
 		}
 	}
 	
