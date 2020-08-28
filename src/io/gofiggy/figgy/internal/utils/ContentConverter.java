@@ -29,9 +29,13 @@ public class ContentConverter {
 	
 	public boolean equals(Integer content) {
 		if(realValueOrigin.equals(int.class) || realValueOrigin.equals(Integer.class) || realValueOrigin.equals(float.class)  || realValueOrigin.equals(double.class)) {
-			if(realValue == content) return true;
-			if(content == Integer.parseInt("" + realValue + "")) return true;
-			if(content == (Integer) realValue) return true;
+			try {
+				if(realValue == content) return true;
+				if(content == Integer.parseInt("" + realValue + "")) return true;
+				if(content == (Integer) realValue) return true;
+			} catch (Exception e) {
+				return false;
+			}
 		}
 		return false;
 	}
@@ -103,11 +107,23 @@ public class ContentConverter {
 	}
 	
 	public String toString() {
-		return "" + realValue + "";
+		if(realValueOrigin.equals(String.class) || realValueOrigin.equals(UUID.class) || realValueOrigin.equals(Integer.class) || realValueOrigin.equals(int.class) || realValueOrigin.equals(float.class) || realValueOrigin.equals(double.class)) {
+			return "" + realValue + "";
+		} else {
+			return null;
+		}
 	}
 	
 	public int toInt() {
-		return 0;
+		if(realValueOrigin.equals(String.class) || realValueOrigin.equals(Integer.class) || realValueOrigin.equals(int.class) || realValueOrigin.equals(float.class) || realValueOrigin.equals(double.class)) {
+			try {
+				return (int) Integer.parseInt("" + realValue + "");
+			} catch (Exception e) {
+				return 0;
+			}
+		} else {
+			return 0;
+		}
 	}
 	
 	public Integer toInteger() {
