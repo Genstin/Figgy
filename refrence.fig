@@ -1,0 +1,12 @@
+(
+  "key1" - (
+    "subkey1" - "value1",
+    "subkey2" - 1,
+    "subkey3" - [
+      (
+        "subkey4" - "value2"
+      )
+    ]
+  ),
+  "key2" - "value3"
+)
