@@ -1,5 +1,5 @@
 package io.gofiggy.figgy.internal.encoders;
 
-public class FiggyEncoding {
+public class Encoding {
 
 }

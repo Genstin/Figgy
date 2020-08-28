@@ -2,18 +2,18 @@ package io.gofiggy.figgy.converter;
 
 import io.gofiggy.figgy.converter.refrences.JSONSyntax;
 import io.gofiggy.figgy.converter.refrences.YMLSyntax;
-import io.gofiggy.figgy.internal.editor.FiggyEditor;
+import io.gofiggy.figgy.internal.editor.Editor;
 
 public class TypeConverter {
-	FiggyEditor imported = new FiggyEditor();
+	Editor imported = new Editor();
 	
 	public TypeConverter() {
 		
 	}
 	
 	public void importFrom(Object file) {
-		if(file.getClass().equals(FiggyEditor.class)) {
-			imported = (FiggyEditor) file;
+		if(file.getClass().equals(Editor.class)) {
+			imported = (Editor) file;
 		}
 	}
 	

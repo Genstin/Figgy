@@ -1,9 +1,9 @@
 package io.gofiggy.figgy.converter.refrences;
 
-import io.gofiggy.figgy.internal.editor.FiggyEditor;
+import io.gofiggy.figgy.internal.editor.Editor;
 
 public class YMLSyntax {
-	public String fromDotFig(FiggyEditor file, Boolean prettyPrint) {
+	public String fromDotFig(Editor file, Boolean prettyPrint) {
 		String builder = "";
 		return null;
 	}

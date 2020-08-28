@@ -1,15 +1,15 @@
 package io.gofiggy.figgy.internal.editor;
 
 import io.gofiggy.figgy.converter.TypeConverter;
-import io.gofiggy.figgy.internal.editor.types.FiggyStage;
-import io.gofiggy.figgy.internal.encoders.FiggyEncoding;
+import io.gofiggy.figgy.internal.editor.types.Stage;
+import io.gofiggy.figgy.internal.encoders.Encoding;
 
-public class FiggyEditor extends FiggyStage {
+public class Editor extends Stage {
 	String path = "";
 	TypeConverter tconv = null; 
-	FiggyEncoding encoder = null;
+	Encoding encoder = null;
 	
-	public FiggyEditor() {
+	public Editor() {
 		tconv = new TypeConverter();
 		tconv.importFrom(this);
 	}
@@ -30,15 +30,18 @@ public class FiggyEditor extends FiggyStage {
 		
 	}
 	
-	public FiggyEncoding getEncooding() {
+	public Encoding getEncooding() {
 		return null;
 	}
 	
-	public void setEncoding(FiggyEncoding encode) {
+	public void setEncoding(Encoding encode) {
 		
 	}
 	
 	public String convertTo(String lang, Boolean prettyPrint) {
 		return tconv.convertTo(lang, prettyPrint);
+	}
+
+	public void importContents(String raw) {
 	}
 }

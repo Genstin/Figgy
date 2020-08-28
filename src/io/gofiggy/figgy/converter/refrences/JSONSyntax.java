@@ -4,18 +4,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import io.gofiggy.figgy.internal.editor.FiggyEditor;
-import io.gofiggy.figgy.internal.editor.types.content.FiggyContent;
-import io.gofiggy.figgy.internal.utils.ContentConverter;
-import io.gofiggy.figgy.manager.JsonEditor;
-import io.gofiggy.figgy.parsers.JsonParser;
+import io.gofiggy.figgy.internal.editor.Editor;
+import io.gofiggy.figgy.internal.editor.types.content.Content;
+import io.gofiggy.figgy.internal.utils.Converter;
+import io.gofiggy.figgy.tools.JsonTools;
 
 public class JSONSyntax {
 	Integer mapMentor = 0;
 	String insertHelper = "";
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public String fromDotFig(FiggyEditor file, Boolean prettyPrint) {
+	public String fromDotFig(Editor file, Boolean prettyPrint) {
 		String newlineSymbol2 = "\n"; 
 		if(prettyPrint == false) {
 			newlineSymbol2 = "";
@@ -24,9 +23,9 @@ public class JSONSyntax {
 		}
 		String builder = "";
 		builder = builder + "{" + newlineSymbol2;
-		for(FiggyContent cont : file.getContents()) {
+		for(Content cont : file.getContents()) {
 			builder = builder + "\"" + cont.getKey() + "\": ";
-			if(cont.getValue().getValueType() != HashMap.class || cont.getValue().getValueType() != ArrayList.class || cont.getValue().getValueType() != List.class || cont.getValue().getValueType() != FiggyContent.class) {
+			if(cont.getValue().getValueType() != HashMap.class || cont.getValue().getValueType() != ArrayList.class || cont.getValue().getValueType() != List.class || cont.getValue().getValueType() != Content.class) {
 				String subbuilder = "";
 				if(cont.getValue().toString() != null) {
 					subbuilder = "\"" + cont.getValue().toString() + "\"";
@@ -53,16 +52,16 @@ public class JSONSyntax {
 						String subbuilder1 = "";
 						String subbuilder2 = "";
 						
-						if((new ContentConverter(k)).toString() != null) {
-							subbuilder1 = "\"" + (new ContentConverter(k)).toString() + "\": ";
+						if((new Converter(k)).toString() != null) {
+							subbuilder1 = "\"" + (new Converter(k)).toString() + "\": ";
 						} else {
-							subbuilder1 = "\"" + (new ContentConverter(k)).getValue() + "\": ";
+							subbuilder1 = "\"" + (new Converter(k)).getValue() + "\": ";
 						}
 						
-						if((new ContentConverter(v)).toString() != null) {
-							subbuilder2 = "\"" + (new ContentConverter(v)).toString() + "\"";
+						if((new Converter(v)).toString() != null) {
+							subbuilder2 = "\"" + (new Converter(v)).toString() + "\"";
 						} else {
-							subbuilder2 = "" + (new ContentConverter(v)).getValue() + "";
+							subbuilder2 = "" + (new Converter(v)).getValue() + "";
 						}
 						
 						subbuilder = subbuilder1 + subbuilder2 + ",";
@@ -84,16 +83,14 @@ public class JSONSyntax {
 		return null;
 	}
 	
-	public FiggyEditor toDotFig(String text) {
-		text = text.replaceAll("\n", "%NEW_LINE%").substring(1, text.length() - 1);
-		return null;
+	public Editor toDotFig(String text) {
+		String raw = text;
+		Editor gen = new Editor();
+		raw = raw.replaceAll("\n", "%NEW_LINE%").substring(1, raw.length() - 1);
+		return gen;
 	}
 	
-	public FiggyEditor toDotFig(JsonParser parser) {
-		return null;
-	}
-	
-	public FiggyEditor toDotFig(JsonEditor editor) {
+	public Editor toDotFig(JsonTools editor) {
 		return null;
 	}
 }

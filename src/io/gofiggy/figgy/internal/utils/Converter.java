@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-public class ContentConverter {
+public class Converter {
 	Object realValue = null;
 	@SuppressWarnings("rawtypes")
 	Class realValueOrigin = null;
 	
-	public ContentConverter() {}
-	public ContentConverter(Object value) {
+	public Converter() {}
+	public Converter(Object value) {
 		setValue(value);
 	}
 	
