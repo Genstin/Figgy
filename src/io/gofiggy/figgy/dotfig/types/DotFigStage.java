@@ -9,11 +9,27 @@ public class DotFigStage {
 		
 	}
 	
-	public DotFigContent[] getContent() {
+	public DotFigContent[] getContents() {
 		return (DotFigContent[]) content.toArray();
 	}
 	
 	public boolean containsContent(DotFigContent content) {
 		return false;
+	}
+	
+	public String exportContents() {
+		String builder = "";
+		builder = builder + "(\n";
+		
+		for(DotFigContent stage : getContents()) {
+			
+		}
+		
+		builder = builder + "\n)";
+		return null;
+	}
+	
+	public void importContents() {
+		
 	}
 }

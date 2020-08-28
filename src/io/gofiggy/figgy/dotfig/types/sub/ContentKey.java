@@ -2,8 +2,19 @@ package io.gofiggy.figgy.dotfig.types.sub;
 
 import io.gofiggy.figgy.internal.utils.ContentConverter;
 
-public class ContentKey extends ContentConverter {
+public class ContentKey {
+	String key = "";
+	
 	public ContentKey() {
-		equals("");
+	}
+	
+	public ContentKey(String key) {
+		this.key = key;
+	}
+	
+	public ContentConverter makeConverter() {
+		ContentConverter gen = new ContentConverter();
+		gen.setValue(key);
+		return gen;
 	}
 }

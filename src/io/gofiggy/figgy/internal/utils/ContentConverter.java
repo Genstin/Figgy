@@ -13,6 +13,9 @@ public class ContentConverter {
 	Class realValueOrigin = null;
 	
 	public ContentConverter() {}
+	public ContentConverter(Object value) {
+		setValue(value);
+	}
 	
 	public boolean equals(Object content) {
 		if(realValue.equals(content)) return true;
@@ -130,8 +133,17 @@ public class ContentConverter {
 		return (Integer) toInt();
 	}
 	
-	public void setContent(Object content) {
-		realValue = content;
-		realValueOrigin = content.getClass();
+	public void setValue(Object value) {
+		realValue = value;
+		realValueOrigin = value.getClass();
+	}
+	
+	public Object getValue() {
+		return realValue;
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public Class getValueType() {
+		return realValueOrigin;
 	}
 }
