@@ -1,4 +1,4 @@
-package io.gofiggy.figgy.dotfig.types.sub;
+package io.gofiggy.figgy.internal.utils;
 
 import java.awt.TextComponent;
 import java.util.ArrayList;
