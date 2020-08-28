@@ -1,7 +1,6 @@
 package io.gofiggy.figgy.dotfig.types.sub;
 
 import java.awt.TextComponent;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -49,9 +48,9 @@ public class ContentConverter {
 	@SuppressWarnings("rawtypes")
 	public boolean equals(HashMap content) {
 		if(realValueOrigin.equals(HashMap.class) || realValueOrigin.equals(Map.class)) {
-			Map ContentAsMap = (Map) content;
+			Map contentAsMap = (Map) content;
 			if(realValue.equals(content)) return true;
-			if(realValue.equals(ContentAsMap)) return true;
+			if(realValue.equals(contentAsMap)) return true;
 		}
 		return false;
 	}
@@ -59,24 +58,47 @@ public class ContentConverter {
 	@SuppressWarnings("rawtypes")
 	public boolean equals(Map content) {
 		if(realValueOrigin.equals(HashMap.class) || realValueOrigin.equals(Map.class)) {
-			HashMap ContentAsMap = (HashMap) content;
+			HashMap contentAsMap = (HashMap) content;
 			if(realValue.equals(content)) return true;
-			if(realValue.equals(ContentAsMap)) return true;
+			if(realValue.equals(contentAsMap)) return true;
 		}
 		return false;
 	}
 	
 	@SuppressWarnings("rawtypes")
 	public boolean equals(ArrayList content) {
-		return false;
-	}
-	
-	public boolean equals(Array content) {
+		if(realValueOrigin.equals(ArrayList.class) || realValueOrigin.equals(List.class)) {
+			List contentAsList = (List) content;
+			if(realValue.equals(content)) return true;
+			if(realValue.equals(contentAsList)) return true;
+			if(realValue.equals(content.toArray())) return true;
+		}
 		return false;
 	}
 	
 	@SuppressWarnings("rawtypes")
 	public boolean equals(List content) {
+		if(realValueOrigin.equals(ArrayList.class) || realValueOrigin.equals(List.class)) {
+			ArrayList contentAsArrayList = (ArrayList) content;
+			if(realValue.equals(content)) return true;
+			if(realValue.equals(contentAsArrayList)) return true;
+			if(realValue.equals(content.toArray())) return true;
+		}
+		return false;
+	}
+	
+	public boolean equals(Boolean content) {
+		if(realValueOrigin.equals(Boolean.class)) {
+			if(realValue.equals(content)) return true;
+		}
+		if(realValueOrigin.equals(String.class)) {
+			if(content) {
+				if(realValue.equals("true")) return true;
+			}
+			if(!content) {
+				if(realValue.equals("false")) return true;
+			}
+		}
 		return false;
 	}
 	
@@ -94,5 +116,6 @@ public class ContentConverter {
 	
 	public void setContent(Object content) {
 		realValue = content;
+		realValueOrigin = content.getClass();
 	}
 }
