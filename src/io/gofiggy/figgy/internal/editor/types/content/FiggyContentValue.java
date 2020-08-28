@@ -1,4 +1,4 @@
-package io.gofiggy.figgy.dotfig.types.content;
+package io.gofiggy.figgy.internal.editor.types.content;
 
 import io.gofiggy.figgy.internal.utils.ContentConverter;
 

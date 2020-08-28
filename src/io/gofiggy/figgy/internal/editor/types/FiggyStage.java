@@ -1,8 +1,8 @@
-package io.gofiggy.figgy.dotfig.types;
+package io.gofiggy.figgy.internal.editor.types;
 
 import java.util.ArrayList;
 
-import io.gofiggy.figgy.dotfig.types.content.FiggyContent;
+import io.gofiggy.figgy.internal.editor.types.content.FiggyContent;
 
 public class FiggyStage {
 	ArrayList<FiggyContent> content = new ArrayList<FiggyContent>();

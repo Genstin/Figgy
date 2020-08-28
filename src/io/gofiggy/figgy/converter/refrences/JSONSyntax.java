@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import io.gofiggy.figgy.dotfig.FiggyEditor;
-import io.gofiggy.figgy.dotfig.types.content.FiggyContent;
+import io.gofiggy.figgy.internal.editor.FiggyEditor;
+import io.gofiggy.figgy.internal.editor.types.content.FiggyContent;
 import io.gofiggy.figgy.internal.utils.ContentConverter;
 import io.gofiggy.figgy.manager.JsonEditor;
 import io.gofiggy.figgy.parsers.JsonParser;
