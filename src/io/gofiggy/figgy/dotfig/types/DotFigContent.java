@@ -8,7 +8,6 @@ public class DotFigContent {
 	ContentValue value = null;
 	
 	public DotFigContent() {
-		
 	}
 	
 	public DotFigContent(Object key) {

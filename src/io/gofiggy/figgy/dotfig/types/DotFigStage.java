@@ -1,5 +1,15 @@
 package io.gofiggy.figgy.dotfig.types;
 
-public class DotFigStage {
+import java.util.ArrayList;
 
+public class DotFigStage {
+	ArrayList<DotFigContent> content = new ArrayList<DotFigContent>();
+	
+	public DotFigStage() {
+		
+	}
+	
+	public DotFigContent[] getContent() {
+		return (DotFigContent[]) content.toArray();
+	}
 }

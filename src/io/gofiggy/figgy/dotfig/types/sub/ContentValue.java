@@ -1,5 +1,5 @@
 package io.gofiggy.figgy.dotfig.types.sub;
 
-public class ContentValue {
+public class ContentValue extends ContentConverter {
 
 }
