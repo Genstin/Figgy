@@ -17,4 +17,20 @@ public class DotFigContent {
 	public DotFigContent(Object key, Object value) {
 		
 	}
+	
+	public void setKey(Object content) {
+		
+	}
+	
+	public void setValue(Object content) {
+		
+	}
+	
+	public ContentKey getKey() {
+		return key;
+	}
+	
+	public ContentValue getValue() {
+		return value;
+	}
 }

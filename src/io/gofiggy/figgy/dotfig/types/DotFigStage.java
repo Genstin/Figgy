@@ -12,4 +12,8 @@ public class DotFigStage {
 	public DotFigContent[] getContent() {
 		return (DotFigContent[]) content.toArray();
 	}
+	
+	public boolean containsContent(DotFigContent content) {
+		return false;
+	}
 }
