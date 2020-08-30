@@ -76,6 +76,12 @@ public class JSONSyntax {
 	}
 	
 	protected String render_subcontent(Content cont, Boolean prettyPrint, Integer spacers) {
+		String tabBuilder = "";
+		String newlineSymbol = "\n"; 
+		String tabSymbol = "   ";
+		for(Integer i = 0; i < spacers; i++) {
+			tabBuilder = tabBuilder + tabSymbol;
+		}
 		String gen = "";
 		if(cont.getKey().makeConverter().canIsString() != false) {
 			gen = tabBuilder + "\"" + cont.getKey().makeConverter().toString() + "\": ";
@@ -92,10 +98,12 @@ public class JSONSyntax {
 	}
 	
 	protected String render_subobject(Content cont, Boolean prettyPrint, Integer spacers) {
+		String tabBuilder = "";
+		String builder = "";
 		String newlineSymbol = "\n"; 
 		String tabSymbol = "   ";
-		for(Integer i = 0; i <= spacers; i++) {
-			tabSymbol = tabSymbol + tabSymbol;
+		for(Integer i = 0; i < spacers; i++) {
+			tabBuilder = tabBuilder + tabSymbol;
 		}
 		if(prettyPrint == false) {
 			newlineSymbol = "";
@@ -104,8 +112,6 @@ public class JSONSyntax {
 			newlineSymbol = "%NEW_LINE%";
 			tabSymbol = "";
 		}
-		String tabBuilder = "";
-		String builder = "";
 		if(cont.getValue().getValueType().equals(HashMap.class)) {
 			builder = render_hashmap_object(cont, builder, newlineSymbol, tabSymbol, tabBuilder, prettyPrint, spacers);
 		} else {
