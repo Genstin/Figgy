@@ -1,4 +1,4 @@
-<h1 align="center">Figgy (Java)</h1>
+<h1 align="center">Figgy For Java</h1>
 <p align="center">
   Modern File Utility
 </p>
@@ -18,9 +18,3 @@ Here is a full list of the file types we *aim* to support!
 * [.ini](https://en.wikipedia.org/wiki/INI_file) - In progress!
 
 In addition to this, we also support our own .fig files and you can create your own type by defining a custom fig parser object in your code, using either a base type or a key charector/value charector regex.
-
-## Figgy Online API
-More information coming soon...
-
-## Fig File (.fig)
-More information coming soon...
