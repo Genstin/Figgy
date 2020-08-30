@@ -6,6 +6,14 @@ import java.util.HashMap;
 import io.gofiggy.figgy.internal.editor.Editor;
 
 public class Tester {
+	
+	// SYSTEM TESTER
+	
+	// This file is only for testing to make sure things are
+	// working as expected. Feel free to try this out if you
+	// just getting started or want to learn more about how
+	// to use our library.
+	
 	public static void main(String[] args) {
 		Editor gen = new Editor();
 		HashMap<String, Object> gen2 = new HashMap<String, Object>();

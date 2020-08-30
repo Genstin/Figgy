@@ -7,7 +7,8 @@ import io.gofiggy.figgy.internal.encoders.Encodings;
 
 public class JsonTools extends JSONSyntax {
 	
-	// DYNAMIC TOOLS
+	// DYNAMIC JSON TOOLS
+	
 	// These tools can be used by declaring a new JSON Syntax!
 	
 	String raw = "";
@@ -52,7 +53,8 @@ public class JsonTools extends JSONSyntax {
 		return edit.exportContents();
 	}
 	
-	// STATIC TOOLS
+	// STATIC JSON TOOLS
+	
 	// These tools can be used by JSONTools.getEditor("your raw JSON");
 	
 	public static Editor getEditor(String raw) {

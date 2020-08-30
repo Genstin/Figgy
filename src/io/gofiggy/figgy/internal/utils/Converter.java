@@ -8,6 +8,12 @@ import java.util.Map;
 import java.util.UUID;
 
 public class Converter {
+	
+	// VALUE CONVERTER
+	
+	// The value converter is an internal utility, but
+	// feel free to use it in your project if you'd like!
+	
 	Object realValue = null;
 	@SuppressWarnings("rawtypes")
 	Class realValueOrigin = null;
@@ -16,6 +22,13 @@ public class Converter {
 	public Converter(Object value) {
 		setValue(value);
 	}
+	
+	// EQUALS METHODS
+	
+	// There are many methods here, so choose wisely. The
+	// equals methods are just like your standard java equals
+	// methods but they actually work and change dynamically
+	// depending on your input source.
 	
 	public boolean equals(Object content) {
 		if(realValue.equals(content)) return true;
@@ -109,6 +122,12 @@ public class Converter {
 		return false;
 	}
 	
+	// TO(*) METHODS
+	
+	// These methods can be used to convert similar variable
+	// types to other variables easily, these are still in the
+	// works; so use with caution.
+	
 	public String toString() {
 		if(realValueOrigin.equals(String.class) || realValueOrigin.equals(UUID.class) || realValueOrigin.equals(Integer.class) || realValueOrigin.equals(int.class) || realValueOrigin.equals(float.class) || realValueOrigin.equals(double.class)) {
 			return "" + realValue + "";
@@ -147,54 +166,49 @@ public class Converter {
 		return realValueOrigin;
 	}
 	
+	// CAN/IS METHODS
+	
+	// These methods check if the value is considered or
+	// available to be a specified other type.
+	
 	@SuppressWarnings("unused")
 	public boolean canIsString() {
 		if(realValueOrigin.equals(String.class) || realValueOrigin.equals(UUID.class)) {
-			if(("" + realValue + "") != null) {
-				return true;
-			}
-		} else {
-			return false;
-		}
+			if(("" + realValue + "") != null) return true;
+		} else return false;
 		return false;
 	}
 	
 	public boolean canIsInteger() {
 		if(realValueOrigin.equals(Integer.class) || realValueOrigin.equals(int.class) || realValueOrigin.equals(float.class) || realValueOrigin.equals(double.class)) {
 			try {
-				if(Integer.parseInt("" + realValue + "") >= (int) 999999999) {
-					return true;
-				}
-			} catch (Exception e) {
-				return false;
-			}
+				if(Integer.parseInt("" + realValue + "") >= (int) 999999999) return true;
+			} catch (Exception e) { return false; };
 		} else {
 			return false;
 		}
 		return false;
 	}
 	
+	// CAN BE MEATHODS
+	
+	// These are just like Can Is meathods except they do
+	// not allow for converting, and just simular variable
+	// types.
+	
 	@SuppressWarnings("unused")
 	public boolean canBeString() {
 		if(realValueOrigin.equals(String.class) || realValueOrigin.equals(UUID.class) || realValueOrigin.equals(Integer.class) || realValueOrigin.equals(int.class) || realValueOrigin.equals(float.class) || realValueOrigin.equals(double.class)) {
-			if(("" + realValue + "") != null) {
-				return true;
-			}
-		} else {
-			return false;
-		}
+			if(("" + realValue + "") != null) return true;
+		} else return false;
 		return false;
 	}
 	
 	public boolean canBeInteger() {
 		if(realValueOrigin.equals(String.class) || realValueOrigin.equals(Integer.class) || realValueOrigin.equals(int.class) || realValueOrigin.equals(float.class) || realValueOrigin.equals(double.class)) {
 			try {
-				if(Integer.parseInt("" + realValue + "") >= (int) 999999999) {
-					return true;
-				}
-			} catch (Exception e) {
-				return false;
-			}
+				if(Integer.parseInt("" + realValue + "") >= (int) 999999999) return true;
+			} catch (Exception e) { return false; }
 		} else {
 			return false;
 		}

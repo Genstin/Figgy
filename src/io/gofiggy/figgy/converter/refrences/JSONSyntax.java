@@ -9,6 +9,13 @@ import io.gofiggy.figgy.internal.editor.types.content.Content;
 import io.gofiggy.figgy.tools.JsonTools;
 
 public class JSONSyntax {
+	
+	// JSON SYNTAX
+	
+	// You can use this to convert or read JSON files, or
+	// you can use the JSON tools as they have the same
+	// classes from here (via extends).
+	
 	Integer mapMentor = 0;
 	Integer contMentor = 0;
 	String insertHelper = "";

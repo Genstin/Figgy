@@ -7,11 +7,16 @@ import io.gofiggy.figgy.internal.editor.types.content.Content;
 import io.gofiggy.figgy.tools.JsonTools;
 
 public class Stage {
+	
+	// EDITOR STAGES
+	
+	// These stages contain the sub contents and methods for
+	// other files or stages. These are also sometimes called
+	// objects in specific file type languages.
+	
 	ArrayList<Content> content = new ArrayList<Content>();
 	
-	public Stage() {
-		
-	}
+	public Stage() {}
 	
 	public ArrayList<Content> getContents() {
 		return content;
