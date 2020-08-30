@@ -33,9 +33,9 @@ public class Converter {
 	public boolean equals(Integer content) {
 		if(realValueOrigin.equals(int.class) || realValueOrigin.equals(Integer.class) || realValueOrigin.equals(float.class)  || realValueOrigin.equals(double.class)) {
 			try {
-				if(realValue == content) return true;
-				if(content == Integer.parseInt("" + realValue + "")) return true;
-				if(content == (Integer) realValue) return true;
+				if(realValue.equals(content)) return true;
+				if(content.equals(Integer.parseInt("" + realValue + ""))) return true;
+				if(content.equals((Integer) realValue)) return true;
 			} catch (Exception e) {
 				return false;
 			}

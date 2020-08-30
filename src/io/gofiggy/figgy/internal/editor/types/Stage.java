@@ -11,8 +11,8 @@ public class Stage {
 		
 	}
 	
-	public Content[] getContents() {
-		return (Content[]) content.toArray();
+	public ArrayList<Content> getContents() {
+		return content;
 	}
 	
 	public boolean containsContent(Content content) {
@@ -33,5 +33,16 @@ public class Stage {
 	
 	public void importContents() {
 		
+	}
+	
+	public void addContent(Content cont) {
+		content.add(cont);
+	}
+	
+	public void addContent(String key, Object value) {
+		Content gen = new Content();
+		gen.setKey(key);
+		gen.setValue(value);
+		addContent(gen);
 	}
 }

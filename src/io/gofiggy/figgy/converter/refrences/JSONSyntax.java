@@ -11,76 +11,68 @@ import io.gofiggy.figgy.tools.JsonTools;
 
 public class JSONSyntax {
 	Integer mapMentor = 0;
+	Integer contMentor = 0;
 	String insertHelper = "";
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String fromDotFig(Editor file, Boolean prettyPrint) {
-		String newlineSymbol2 = "\n"; 
+		String newlineSymbol = "\n"; 
+		String tabSymbol = "   ";
 		if(prettyPrint == false) {
-			newlineSymbol2 = "";
+			newlineSymbol = "";
+			tabSymbol = "";
 		} else if(prettyPrint == null) {
-			newlineSymbol2 = "%NEW_LINE%";
+			newlineSymbol = "%NEW_LINE%";
+			tabSymbol = "";
 		}
+		String tabBuilder = "";
 		String builder = "";
-		builder = builder + "{" + newlineSymbol2;
+		contMentor = -1;
+		builder = builder + "{" + newlineSymbol;
 		for(Content cont : file.getContents()) {
-			builder = builder + "\"" + cont.getKey() + "\": ";
-			if(cont.getValue().getValueType() != HashMap.class || cont.getValue().getValueType() != ArrayList.class || cont.getValue().getValueType() != List.class || cont.getValue().getValueType() != Content.class) {
+			contMentor = contMentor + 1;
+			tabBuilder = tabSymbol;
+			builder = builder + tabBuilder + "\"" + cont.getKey().getValue() + "\": ";
+			if(!cont.getValue().getValueType().equals(HashMap.class) && !cont.getValue().getValueType().equals(ArrayList.class) && !cont.getValue().getValueType().equals(List.class) && !cont.getValue().getValueType().equals(Content.class)) {
 				String subbuilder = "";
-				if(cont.getValue().toString() != null) {
-					subbuilder = "\"" + cont.getValue().toString() + "\"";
-				} else {
-					subbuilder = "" + cont.getValue() + "";
-				}
-				builder = builder + subbuilder + ",";
+				if(cont.getValue().toString() != null) { subbuilder = "\"" + cont.getValue().toString() + "\""; } else subbuilder = "" + cont.getValue() + "";
+				builder = builder + subbuilder;
 			} else {
-				if(cont.getValue().getValueType() == HashMap.class) {
-					builder = builder + "{" + newlineSymbol2;
+				if(cont.getValue().getValueType().equals(HashMap.class)) {
+					builder = builder + "{" + newlineSymbol;
 					HashMap map = (HashMap) cont.getValue().getValue();
 					mapMentor = -1;
-					insertHelper = builder;
+					insertHelper = "";
+					Iterable map2 = null;
 					map.forEach((k, v) -> {
-						String newlineSymbol = "\n"; 
-						if(prettyPrint == false) {
-							newlineSymbol = "";
-						} else if(prettyPrint == null) {
-							newlineSymbol = "%NEW_LINE%";
-						}
-						
+						String tabSymbol2 = "   ";
+						String newlineSymbol2 = "\n";
+						if(prettyPrint == false) { newlineSymbol2 = ""; tabSymbol2 = "";
+						} else if(prettyPrint == null) { newlineSymbol2 = "%NEW_LINE%"; tabSymbol2 = ""; }
 						mapMentor = mapMentor + 1;
 						String subbuilder = "";
 						String subbuilder1 = "";
 						String subbuilder2 = "";
-						
-						if((new Converter(k)).toString() != null) {
-							subbuilder1 = "\"" + (new Converter(k)).toString() + "\": ";
-						} else {
-							subbuilder1 = "\"" + (new Converter(k)).getValue() + "\": ";
-						}
-						
-						if((new Converter(v)).toString() != null) {
-							subbuilder2 = "\"" + (new Converter(v)).toString() + "\"";
-						} else {
-							subbuilder2 = "" + (new Converter(v)).getValue() + "";
-						}
-						
-						subbuilder = subbuilder1 + subbuilder2 + ",";
-						
-						if((Math.floor(map.size() - 1)) == mapMentor) {
-							subbuilder = subbuilder.substring(subbuilder.length() - 1);
-						}
-						
-						insertHelper = insertHelper + subbuilder + "" + newlineSymbol;
+						String tabBuilder2 = tabSymbol2 + tabSymbol2;
+						if((new Converter(k)).toString() != null) { subbuilder1 = "\"" + (new Converter(k)).toString() + "\": "; } else subbuilder1 = "\"" + (new Converter(k)).getValue() + "\": ";
+						if((new Converter(v)).toString() != null) {	subbuilder2 = "\"" + (new Converter(v)).toString() + "\""; } else subbuilder2 = "" + (new Converter(v)).getValue() + "";
+						subbuilder = tabBuilder2 + subbuilder1 + subbuilder2 + ",";
+						if((Math.floor(map.size() - 1)) == mapMentor) subbuilder = subbuilder.substring(0, subbuilder.length() - 1);
+						insertHelper = insertHelper + subbuilder + "" + newlineSymbol2;
 					});
-					builder = builder + insertHelper + "}";
+					builder = builder + insertHelper + tabBuilder + "}";
 				} else {
-					builder = builder + "[" + newlineSymbol2;
-					builder = builder + "]";
+					builder = builder + "[" + newlineSymbol;
+					builder = builder + tabBuilder + "]";
 				}
 			}
+			builder = builder + ",";
+			if((Math.floor(file.getContents().size() - 1)) == contMentor) builder = builder.substring(0, builder.length() - 1);
+			builder = builder + newlineSymbol;
 		}
+		
 		builder = builder + "}";
-		return null;
+		return builder;
 	}
 	
 	public Editor toDotFig(String text) {
@@ -91,6 +83,8 @@ public class JSONSyntax {
 	}
 	
 	public Editor toDotFig(JsonTools editor) {
+		
 		return null;
+		
 	}
 }

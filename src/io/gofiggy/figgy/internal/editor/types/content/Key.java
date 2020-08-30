@@ -17,4 +17,8 @@ public class Key {
 		gen.setValue(key);
 		return gen;
 	}
+	
+	public String getValue() {
+		return key;
+	}
 }

@@ -5,7 +5,7 @@ import io.gofiggy.figgy.converter.refrences.YMLSyntax;
 import io.gofiggy.figgy.internal.editor.Editor;
 
 public class TypeConverter {
-	Editor imported = new Editor();
+	Editor imported = null;
 	
 	public TypeConverter() {
 		
