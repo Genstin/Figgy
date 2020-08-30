@@ -77,15 +77,16 @@ public class JSONSyntax {
 	
 	protected String render_subcontent(Content cont, Boolean prettyPrint, Integer spacers) {
 		String gen = "";
-		if(cont.getKey().makeConverter().toString() != null) {
-			gen = cont.getKey().makeConverter().toString() + "\": ";
+		if(cont.getKey().makeConverter().canIsString() != false) {
+			gen = tabBuilder + "\"" + cont.getKey().makeConverter().toString() + "\": ";
 		} else {
 			gen = "\"" + cont.getKey().makeConverter().getValue() + "\": ";
 		}
-		if(cont.getValue().toString() != null) {
-			gen = "\"" + cont.getValue().toString() + "\"";
+		
+		if(cont.getValue().canIsString() != false) {
+			gen = gen + "\"" + cont.getValue().toString() + "\"";
 		} else {
-			gen = "" + cont.getValue().getValue() + "";
+			gen = gen + "" + cont.getValue().getValue() + "";
 		}
 		return gen;
 	}
