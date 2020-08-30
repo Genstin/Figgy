@@ -41,7 +41,4 @@ public class Editor extends Stage {
 	public String convertTo(String lang, Boolean prettyPrint) {
 		return tconv.convertTo(lang, prettyPrint);
 	}
-
-	public void importContents(String raw) {
-	}
 }

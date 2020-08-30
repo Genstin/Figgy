@@ -2,7 +2,9 @@ package io.gofiggy.figgy.internal.editor.types;
 
 import java.util.ArrayList;
 
+import io.gofiggy.figgy.internal.editor.Editor;
 import io.gofiggy.figgy.internal.editor.types.content.Content;
+import io.gofiggy.figgy.tools.JsonTools;
 
 public class Stage {
 	ArrayList<Content> content = new ArrayList<Content>();
@@ -31,8 +33,13 @@ public class Stage {
 		return null;
 	}
 	
-	public void importContents() {
-		
+	public void importContents(JsonTools tools) {
+	}
+	
+	public void importContents(Editor editor) {
+	}
+	
+	public void importContents(String raw) {
 	}
 	
 	public void addContent(Content cont) {
