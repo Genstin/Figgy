@@ -1,4 +1,4 @@
-package io.gofiggy.figgytester;
+package io.gofiggy.figgy.internal.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
