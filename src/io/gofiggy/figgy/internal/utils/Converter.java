@@ -146,4 +146,58 @@ public class Converter {
 	public Class getValueType() {
 		return realValueOrigin;
 	}
+	
+	@SuppressWarnings("unused")
+	public boolean canIsString() {
+		if(realValueOrigin.equals(String.class) || realValueOrigin.equals(UUID.class)) {
+			if(("" + realValue + "") != null) {
+				return true;
+			}
+		} else {
+			return false;
+		}
+		return false;
+	}
+	
+	public boolean canIsInteger() {
+		if(realValueOrigin.equals(Integer.class) || realValueOrigin.equals(int.class) || realValueOrigin.equals(float.class) || realValueOrigin.equals(double.class)) {
+			try {
+				if(Integer.parseInt("" + realValue + "") >= (int) 999999999) {
+					return true;
+				}
+			} catch (Exception e) {
+				return false;
+			}
+		} else {
+			return false;
+		}
+		return false;
+	}
+	
+	@SuppressWarnings("unused")
+	public boolean canBeString() {
+		if(realValueOrigin.equals(String.class) || realValueOrigin.equals(UUID.class) || realValueOrigin.equals(Integer.class) || realValueOrigin.equals(int.class) || realValueOrigin.equals(float.class) || realValueOrigin.equals(double.class)) {
+			if(("" + realValue + "") != null) {
+				return true;
+			}
+		} else {
+			return false;
+		}
+		return false;
+	}
+	
+	public boolean canBeInteger() {
+		if(realValueOrigin.equals(String.class) || realValueOrigin.equals(Integer.class) || realValueOrigin.equals(int.class) || realValueOrigin.equals(float.class) || realValueOrigin.equals(double.class)) {
+			try {
+				if(Integer.parseInt("" + realValue + "") >= (int) 999999999) {
+					return true;
+				}
+			} catch (Exception e) {
+				return false;
+			}
+		} else {
+			return false;
+		}
+		return false;
+	}
 }
