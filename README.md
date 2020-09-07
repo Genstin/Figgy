@@ -1,11 +1,16 @@
-<h1 align="center">Figgy For Java</h1>
+<p align="center"><img src="https://i.imgur.com/rfY9VBZ.png" title="Caviel Figgy Logo"></p>
+<p align="center">The Fast File Reader & Writer Library</p>
+
 <p align="center">
-  Modern File Utility
+<img src="https://badge.fury.io/gh/caviel%2Ffiggy.svg">
+<img src="https://travis-ci.com/Caviel/Figgy.svg?branch=master">
 </p>
+
+## Introduction
 
 Figgy for Java helps you parse and edit configuration files such as YML, JSON, conf, properties and more with zero other resources except for this!
 
-## File Types
+## Supported File Types
 Here is a full list of the file types we *aim* to support!
 
 * [YAML](https://yaml.org) - In progress!
