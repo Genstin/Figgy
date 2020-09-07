@@ -1,10 +1,12 @@
-<p align="center"><img src="https://i.imgur.com/rfY9VBZ.png" title="Caviel Figgy Logo"></p>
-<p align="center">The Fast File Reader & Writer Library</p>
-
+<br>
+<br>
+<p align="center"><img title="Caviel Fast Image Library Logo" src="https://i.imgur.com/IgQKtS4.png"></p>
+<br>
 <p align="center">
 <img src="https://badge.fury.io/gh/caviel%2Ffiggy.svg">
 <img src="https://travis-ci.com/Caviel/Figgy.svg?branch=master">
 </p>
+<br>
 
 ## Introduction
 
